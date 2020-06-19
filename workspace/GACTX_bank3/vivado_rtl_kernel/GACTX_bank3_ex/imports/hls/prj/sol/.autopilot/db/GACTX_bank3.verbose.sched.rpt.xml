@@ -1,0 +1,51 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'GACTX_bank3'" level="0">
+<item name = "Date">Fri Jun 19 03:47:49 2020
+</item>
+<item name = "Version">2019.1 (Build 2579327 on Sat Jun 29 15:19:01 MDT 2019)</item>
+<item name = "Project">prj</item>
+<item name = "Solution">sol</item>
+<item name = "Product family">virtexuplus</item>
+<item name = "Target device">xcu200-fsgd2104-2-e</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00, 8.750, 1.25</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">24609, 24609, 24609, 24609, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- memcpy.m00_axi_input_buffer.ref_seq">4097, 4097, 3, 1, 1, 4096, yes</column>
+<column name="- Loop 2">4096, 4096, 2, 1, 1, 4096, yes</column>
+<column name="- memcpy.ref_seq.m00_axi_output_buffer.gep">4097, 4097, 3, 1, 1, 4096, yes</column>
+<column name="- memcpy.m01_axi_input_buffer.tile_output">4097, 4097, 3, 1, 1, 4096, yes</column>
+<column name="- Loop 5">4096, 4096, 2, 1, 1, 4096, yes</column>
+<column name="- memcpy.tile_output.m01_axi_output_buffer.gep">4097, 4097, 3, 1, 1, 4096, yes</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

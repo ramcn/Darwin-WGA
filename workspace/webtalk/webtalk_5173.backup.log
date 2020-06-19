@@ -1,0 +1,51 @@
+#-----------------------------------------------------------
+# Webtalk v2019.1 (64-bit)
+# SW Build 2579327 on Sat Jun 29 14:34:41 MDT 2019
+# 
+# Start of session at: Fri Jun 19 04:15:37 2020
+# Process ID: 5173
+# Current directory: /home/nimbix/workspace/webtalk
+# Command line: wbtcv -mode batch -source sdx_webtalk.tcl
+# Log file: /home/nimbix/workspace/webtalk/webtalk.log
+# Journal file: /home/nimbix/workspace/webtalk/webtalk.jou
+#-----------------------------------------------------------
+source sdx_webtalk.tcl
+# webtalk_init -webtalk_dir /home/nimbix/workspace/webtalk
+# webtalk_register_client -client project
+# webtalk_add_data -client project -key date_generated -value "2020-06-19 04:15:35" -context "software_version_and_target_device"
+# webtalk_add_data -client project -key product_version -value "SDx v2019.1" -context "software_version_and_target_device"
+# webtalk_add_data -client project -key build_version -value "2019.1" -context "software_version_and_target_device"
+# webtalk_add_data -client project -key os_platform -value "amd64" -context "software_version_and_target_device"
+# webtalk_add_data -client project -key registration_id -value "NA" -context "software_version_and_target_device"
+# webtalk_add_data -client project -key tool_flow -value "SDx" -context "software_version_and_target_device"
+# webtalk_add_data -client project -key beta -value "false" -context "software_version_and_target_device"
+# webtalk_add_data -client project -key route_design -value "NA" -context "software_version_and_target_device"
+# webtalk_add_data -client project -key target_family -value "NA" -context "software_version_and_target_device"
+# webtalk_add_data -client project -key target_device -value "NA" -context "software_version_and_target_device"
+# webtalk_add_data -client project -key target_package -value "NA" -context "software_version_and_target_device"
+# webtalk_add_data -client project -key target_speed -value "NA" -context "software_version_and_target_device"
+# webtalk_add_data -client project -key random_id -value "2uhs0m5obll5pk4hqm32pk3nmv" -context "software_version_and_target_device"
+# webtalk_add_data -client project -key project_id -value "2019.1_1" -context "software_version_and_target_device"
+# webtalk_add_data -client project -key project_iteration -value "1" -context "software_version_and_target_device"
+# webtalk_add_data -client project -key os_name -value "Ubuntu" -context "user_environment"
+# webtalk_add_data -client project -key os_release -value "Ubuntu 16.04.4 LTS" -context "user_environment"
+# webtalk_add_data -client project -key cpu_name -value "Intel(R) Xeon(R) CPU E5-2640 v3 @ 2.60GHz" -context "user_environment"
+# webtalk_add_data -client project -key cpu_speed -value "1825.194 MHz" -context "user_environment"
+# webtalk_add_data -client project -key total_processors -value "1" -context "user_environment"
+# webtalk_add_data -client project -key system_ram -value "68.719 GB" -context "user_environment"
+# webtalk_register_client -client sdx
+# webtalk_add_data -client sdx -key uid -value "1592537479000" -context "sdx\\\\application/1592537479000"
+# webtalk_add_data -client sdx -key project_type -value "sdaccel" -context "sdx\\\\application/1592537479000"
+# webtalk_add_data -client sdx -key os -value "NA" -context "sdx\\\\application/1592537479000"
+# webtalk_add_data -client sdx -key processor -value "NA" -context "sdx\\\\application/1592537479000"
+# webtalk_add_data -client sdx -key runtime -value "OpenCL" -context "sdx\\\\application/1592537479000"
+# webtalk_add_data -client sdx -key template -value "empty" -context "sdx\\\\application/1592537479000"
+# webtalk_add_data -client sdx -key platform -value "xilinx_u200_xdma_201830_2" -context "sdx\\\\application/1592537479000"
+# webtalk_add_data -client sdx -key platform_type -value "extensible" -context "sdx\\\\application/1592537479000"
+# webtalk_add_data -client sdx -key application_type -value "application" -context "sdx\\\\application/1592537479000"
+# webtalk_add_data -client sdx -key platform_source -value "platform" -context "sdx\\\\application/1592537479000"
+# webtalk_add_data -client sdx -key device_family -value "virtexuplus" -context "sdx\\\\application/1592537479000"
+# webtalk_add_data -client sdx -key fpga -value "xcu200" -context "sdx\\\\application/1592537479000"
+# webtalk_transmit -clientid 3169179006 -regid "" -xml /home/nimbix/workspace/webtalk/usage_statistics_ext_sdx.xml -html /home/nimbix/workspace/webtalk/usage_statistics_ext_sdx.html -wdm /home/nimbix/workspace/webtalk/sdx_webtalk.wdm -intro "<H3>SDx Usage Report</H3><BR>"
+# webtalk_terminate
+INFO: [Common 17-206] Exiting Webtalk at Fri Jun 19 04:15:37 2020...

@@ -1,0 +1,12 @@
+04:26:05 **** Build of configuration Emulation-SW for project GACTX_bank3 ****
+make -j8 incremental 
+/opt/xilinx/SDx/2019.1/bin/emconfigutil --od . --nd 1  --platform xilinx_u200_xdma_201830_2
+
+****** configutil v2019.1 (64-bit)
+  **** SW Build 2579327 on Sat Jun 29 14:34:41 MDT 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+INFO: [ConfigUtil 60-895]   Target platform: /opt/xilinx/platforms/xilinx_u200_xdma_201830_2/xilinx_u200_xdma_201830_2.xpfm
+emulation configuration file `emconfig.json` is created in . directory 
+WARNING: No host source files were found.
+WARNING: No binary containers were found.

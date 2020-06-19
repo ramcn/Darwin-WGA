@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2019.1 (64-bit)
+# SW Build 2579327 on Sat Jun 29 14:34:41 MDT 2019
+# 
+# Start of session at: Fri Jun 19 04:15:37 2020
+# Process ID: 5173
+# Current directory: /home/nimbix/workspace/webtalk
+# Command line: wbtcv -mode batch -source sdx_webtalk.tcl
+# Log file: /home/nimbix/workspace/webtalk/webtalk.log
+# Journal file: /home/nimbix/workspace/webtalk/webtalk.jou
+#-----------------------------------------------------------
+source sdx_webtalk.tcl

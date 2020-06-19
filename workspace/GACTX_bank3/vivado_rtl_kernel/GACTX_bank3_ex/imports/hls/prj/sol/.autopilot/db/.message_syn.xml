@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Messages>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_631" tag="SCHEDULE" content="Option &apos;relax_ii_for_timing&apos; is enabled, will increase II to preserve clock frequency constraints."/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1312" tag="" content="Analyzing design file &apos;../GACTX_bank3_cmodel.cpp&apos; ..."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Linking Time (s): cpu = 00:00:14 ; elapsed = 00:00:20 . Memory (MB): peak = 811.434 ; gain = 128.000 ; free physical = 60507 ; free virtual = 192811"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Checking Pragmas Time (s): cpu = 00:00:14 ; elapsed = 00:00:20 . Memory (MB): peak = 811.434 ; gain = 128.000 ; free physical = 60507 ; free virtual = 192811"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1467" tag="" content="Starting code transformations ..."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Standard Transforms Time (s): cpu = 00:00:15 ; elapsed = 00:00:22 . Memory (MB): peak = 811.434 ; gain = 128.000 ; free physical = 60499 ; free virtual = 192810"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1472" tag="" content="Checking synthesizability ..."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Checking Synthesizability Time (s): cpu = 00:00:16 ; elapsed = 00:00:22 . Memory (MB): peak = 811.434 ; gain = 128.000 ; free physical = 60493 ; free virtual = 192803"/>
+	<Message severity="INFO" prefix="[XFORM 203-510]" key="XFORM_AUTO_PIPELINE_STATUS_244" tag="" content="Pipelining loop &apos;Loop-3&apos; (../GACTX_bank3_cmodel.cpp:97) in function &apos;GACTX_bank3&apos; automatically."/>
+	<Message severity="INFO" prefix="[XFORM 203-510]" key="XFORM_AUTO_PIPELINE_STATUS_244" tag="" content="Pipelining loop &apos;Loop-6&apos; (../GACTX_bank3_cmodel.cpp:118) in function &apos;GACTX_bank3&apos; automatically."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Pre-synthesis Time (s): cpu = 00:00:17 ; elapsed = 00:00:24 . Memory (MB): peak = 811.434 ; gain = 128.000 ; free physical = 60467 ; free virtual = 192778"/>
+	<Message severity="INFO" prefix="[HLS 200-444]" key="HLS 200-444" tag="AXI,SDX_AXI" content="Inferring multiple bus burst read of a total cumulative length 4096 on port &apos;m00_axi&apos; (../GACTX_bank3_cmodel.cpp:94:5). These data requests might be further partitioned to multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings."/>
+	<Message severity="INFO" prefix="[HLS 200-444]" key="HLS 200-444" tag="AXI,SDX_AXI" content="Inferring multiple bus burst read of a total cumulative length 4096 on port &apos;m01_axi&apos; (../GACTX_bank3_cmodel.cpp:115:5). These data requests might be further partitioned to multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings."/>
+	<Message severity="INFO" prefix="[HLS 200-444]" key="HLS 200-444" tag="AXI,SDX_AXI" content="Inferring multiple bus burst write of a total cumulative length 4096 on port &apos;m00_axi&apos; (../GACTX_bank3_cmodel.cpp:102:5). These data requests might be further partitioned to multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings."/>
+	<Message severity="INFO" prefix="[HLS 200-444]" key="HLS 200-444" tag="AXI,SDX_AXI" content="Inferring multiple bus burst write of a total cumulative length 4096 on port &apos;m01_axi&apos; (../GACTX_bank3_cmodel.cpp:123:5). These data requests might be further partitioned to multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Architecture Synthesis Time (s): cpu = 00:00:19 ; elapsed = 00:00:25 . Memory (MB): peak = 811.434 ; gain = 128.000 ; free physical = 60466 ; free virtual = 192777"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1317" tag="" content="Starting hardware synthesis ..."/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1385" tag="" content="Synthesizing &apos;GACTX_bank3&apos; ..."/>
+	<Message severity="INFO" prefix="[SYN 201-201]" key="ASSGN_CLOCK_INFO_459" tag="" content="Setting up clock &apos;default&apos; with a period of 10ns."/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------"/>
+	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;GACTX_bank3&apos;"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------"/>
+	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;memcpy.m00_axi_input_buffer.ref_seq&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 1, Depth = 3."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;Loop 2&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 1, Depth = 2."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;memcpy.ref_seq.m00_axi_output_buffer.gep&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 1, Depth = 3."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;memcpy.m01_axi_input_buffer.tile_output&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 1, Depth = 3."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;Loop 5&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 1, Depth = 2."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;memcpy.tile_output.m01_axi_output_buffer.gep&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 1, Depth = 3."/>
+	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 25.26 seconds; current allocated memory: 105.189 MB."/>
+	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..."/>
+	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis."/>
+	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing."/>
+	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..."/>
+	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.19 seconds; current allocated memory: 105.907 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;GACTX_bank3&apos;"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------"/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;GACTX_bank3/m00_axi&apos; to &apos;m_axi&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;GACTX_bank3/m01_axi&apos; to &apos;m_axi&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;GACTX_bank3/sub_AA&apos; to &apos;s_axilite &amp; ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;GACTX_bank3/sub_AC&apos; to &apos;s_axilite &amp; ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;GACTX_bank3/sub_AG&apos; to &apos;s_axilite &amp; ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;GACTX_bank3/sub_AT&apos; to &apos;s_axilite &amp; ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;GACTX_bank3/sub_CC&apos; to &apos;s_axilite &amp; ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;GACTX_bank3/sub_CG&apos; to &apos;s_axilite &amp; ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;GACTX_bank3/sub_CT&apos; to &apos;s_axilite &amp; ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;GACTX_bank3/sub_GG&apos; to &apos;s_axilite &amp; ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;GACTX_bank3/sub_GT&apos; to &apos;s_axilite &amp; ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;GACTX_bank3/sub_TT&apos; to &apos;s_axilite &amp; ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;GACTX_bank3/sub_N&apos; to &apos;s_axilite &amp; ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;GACTX_bank3/gap_open&apos; to &apos;s_axilite &amp; ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;GACTX_bank3/gap_extend&apos; to &apos;s_axilite &amp; ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;GACTX_bank3/y_drop&apos; to &apos;s_axilite &amp; ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;GACTX_bank3/align_fields&apos; to &apos;s_axilite &amp; ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;GACTX_bank3/ref_len&apos; to &apos;s_axilite &amp; ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;GACTX_bank3/query_len&apos; to &apos;s_axilite &amp; ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;GACTX_bank3/ref_offset&apos; to &apos;s_axilite &amp; ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;GACTX_bank3/query_offset&apos; to &apos;s_axilite &amp; ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;GACTX_bank3/ref_seq&apos; to &apos;s_axilite &amp; ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;GACTX_bank3/query_seq&apos; to &apos;s_axilite &amp; ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;GACTX_bank3/tile_output&apos; to &apos;s_axilite &amp; ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;GACTX_bank3/tb_output&apos; to &apos;s_axilite &amp; ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on function &apos;GACTX_bank3&apos; to &apos;s_axilite &amp; ap_ctrl_hs&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_851" tag="" content="Bundling port &apos;return&apos;, &apos;sub_AA&apos;, &apos;sub_AC&apos;, &apos;sub_AG&apos;, &apos;sub_AT&apos;, &apos;sub_CC&apos;, &apos;sub_CG&apos;, &apos;sub_CT&apos;, &apos;sub_GG&apos;, &apos;sub_GT&apos;, &apos;sub_TT&apos;, &apos;sub_N&apos;, &apos;gap_open&apos;, &apos;gap_extend&apos;, &apos;y_drop&apos;, &apos;align_fields&apos;, &apos;ref_len&apos;, &apos;query_len&apos;, &apos;ref_offset&apos;, &apos;query_offset&apos;, &apos;ref_seq&apos;, &apos;query_seq&apos;, &apos;tile_output&apos; and &apos;tb_output&apos; to AXI-Lite port control."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;GACTX_bank3&apos;."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.17 seconds; current allocated memory: 107.706 MB."/>
+	<Message severity="INFO" prefix="[RTMG 210-278]" key="RTMG_278_1790" tag="" content="Implementing memory &apos;GACTX_bank3_m00_axi_input_buffer_ram (RAM)&apos; using block RAMs."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished generating all RTL models Time (s): cpu = 00:00:20 ; elapsed = 00:00:27 . Memory (MB): peak = 811.434 ; gain = 128.000 ; free physical = 60436 ; free virtual = 192757"/>
+	<Message severity="INFO" prefix="[VHDL 208-304]" key="VHDL_304_1066" tag="" content="Generating VHDL RTL for GACTX_bank3."/>
+	<Message severity="INFO" prefix="[VLOG 209-307]" key="VLOG_307_1067" tag="" content="Generating Verilog RTL for GACTX_bank3."/>
+</Messages>

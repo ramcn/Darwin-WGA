@@ -1,0 +1,32 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2579327 on Sat Jun 29 14:34:41 MDT 2019
+# IP Build 2548770 on Sat Jun 29 17:24:48 MDT 2019
+# Start of session at: Fri Jun 19 03:31:37 2020
+# Process ID: 1049
+# Current directory: /home/nimbix/workspace/GACTX_bank3/vivado_rtl_kernel
+# Command line: vivado -mode batch -source /tmp/sdx16160244968108828953.tmp -notrace
+# Log file: /home/nimbix/workspace/GACTX_bank3/vivado_rtl_kernel/vivado.log
+# Journal file: /home/nimbix/workspace/GACTX_bank3/vivado_rtl_kernel/vivado.jou
+#-----------------------------------------------------------
+source /tmp/sdx16160244968108828953.tmp -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/xilinx/Vivado/2019.1/data/ip'.
+create_ip -name sdx_kernel_wizard -vendor xilinx.com -library ip -version 1.0 -module_name GACTX_bank3
+create_ip: Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 6618.754 ; gain = 0.000 ; free physical = 61973 ; free virtual = 194136
+set_property -dict [list CONFIG.Component_Name {GACTX_bank3} CONFIG.KERNEL_NAME {GACTX_bank3} CONFIG.KERNEL_VENDOR {cva_stanford} CONFIG.KERNEL_LIBRARY {ip} CONFIG.NUM_INPUT_ARGS {19} CONFIG.ARG00_NAME {sub_AA} CONFIG.ARG00_TYPE {int} CONFIG.ARG01_NAME {sub_AC} CONFIG.ARG01_TYPE {int} CONFIG.ARG02_NAME {sub_AG} CONFIG.ARG02_TYPE {int} CONFIG.ARG03_NAME {sub_AT} CONFIG.ARG03_TYPE {int} CONFIG.ARG04_NAME {sub_CC} CONFIG.ARG04_TYPE {int} CONFIG.ARG05_NAME {sub_CG} CONFIG.ARG05_TYPE {int} CONFIG.ARG06_NAME {sub_CT} CONFIG.ARG06_TYPE {int} CONFIG.ARG07_NAME {sub_GG} CONFIG.ARG07_TYPE {int} CONFIG.ARG08_NAME {sub_GT} CONFIG.ARG08_TYPE {int} CONFIG.ARG09_NAME {sub_TT} CONFIG.ARG09_TYPE {int} CONFIG.ARG10_NAME {sub_N} CONFIG.ARG10_TYPE {int} CONFIG.ARG11_NAME {gap_open} CONFIG.ARG11_TYPE {int} CONFIG.ARG12_NAME {gap_extend} CONFIG.ARG12_TYPE {int} CONFIG.ARG13_NAME {y_drop} CONFIG.ARG13_TYPE {int} CONFIG.ARG14_NAME {align_fields} CONFIG.ARG14_TYPE {uint} CONFIG.ARG15_NAME {ref_len} CONFIG.ARG15_TYPE {uint} CONFIG.ARG16_NAME {query_len} CONFIG.ARG16_TYPE {uint} CONFIG.ARG17_NAME {ref_offset} CONFIG.ARG17_TYPE {ulong} CONFIG.ARG18_NAME {query_offset} CONFIG.ARG18_TYPE {ulong} CONFIG.NUM_M_AXI {2} CONFIG.M00_AXI_DATA_NUM_BYTES {128} CONFIG.M00_AXI_NUM_ARGS {2} CONFIG.M00_AXI_ARG00_NAME {ref_seq} CONFIG.M00_AXI_ARG01_NAME {query_seq} CONFIG.M01_AXI_DATA_NUM_BYTES {128} CONFIG.M01_AXI_NUM_ARGS {2} CONFIG.M01_AXI_ARG00_NAME {tile_output} CONFIG.M01_AXI_ARG01_NAME {tb_output}] [get_ips GACTX_bank3]
+WARNING: [Vivado 12-3523] Attempt to change 'Component_Name' from 'GACTX_bank3' to 'GACTX_bank3' is not allowed and is ignored.
+generate_target {instantiation_template} [get_files /home/nimbix/workspace/GACTX_bank3/vivado_rtl_kernel/vivado_rtl_kernel.srcs/sources_1/ip/GACTX_bank3/GACTX_bank3.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'GACTX_bank3'...
+set_property generate_synth_checkpoint false [get_files /home/nimbix/workspace/GACTX_bank3/vivado_rtl_kernel/vivado_rtl_kernel.srcs/sources_1/ip/GACTX_bank3/GACTX_bank3.xci]
+generate_target all [get_files /home/nimbix/workspace/GACTX_bank3/vivado_rtl_kernel/vivado_rtl_kernel.srcs/sources_1/ip/GACTX_bank3/GACTX_bank3.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'GACTX_bank3'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'GACTX_bank3'...
+export_ip_user_files -of_objects [get_files /home/nimbix/workspace/GACTX_bank3/vivado_rtl_kernel/vivado_rtl_kernel.srcs/sources_1/ip/GACTX_bank3/GACTX_bank3.xci] -no_script -sync -force -quiet
+start_gui
+open_example_project -force -dir /home/nimbix/workspace/GACTX_bank3/vivado_rtl_kernel [get_ips GACTX_bank3]
+INFO: [IP_Flow 19-1686] Generating 'Examples' target for IP 'GACTX_bank3'...
+open_example_project: Time (s): cpu = 00:00:02 ; elapsed = 00:01:10 . Memory (MB): peak = 6636.602 ; gain = 15.848 ; free physical = 60523 ; free virtual = 192852
+exit
+INFO: [Common 17-206] Exiting Vivado at Fri Jun 19 03:48:04 2020...

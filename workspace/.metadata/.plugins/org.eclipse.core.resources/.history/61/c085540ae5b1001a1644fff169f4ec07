@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<openclProject:OpenCLProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:openclProject="http://www.xilinx.com/openclproject" name="GACTX_bank3" location="/home/nimbix/workspace/GACTX_bank3" platform="/opt/xilinx/platforms/xilinx_u200_xdma_201830_2/xilinx_u200_xdma_201830_2.xpfm" platformUID="xilinx:u200:xdma:201830.2" systemProject="GACTX_bank3_system" sysConfig="Linux" cpu="" cpuInstance="" os="linux">
+  <configuration name="Emulation-SW" id="com.xilinx.sdx.opencl.config.sw_emu.453486141">
+    <configBuildOptions xsi:type="openclProject:OpenCLOptions" kernelDebug="true"/>
+  </configuration>
+  <configuration name="Emulation-HW" id="com.xilinx.sdx.opencl.config.hw_emu.907059289">
+    <configBuildOptions xsi:type="openclProject:OpenCLOptions" kernelDebug="true" target="hw_emu"/>
+  </configuration>
+  <configuration name="System" id="com.xilinx.sdx.opencl.config.hw.1961294815">
+    <configBuildOptions xsi:type="openclProject:OpenCLOptions" target="hw"/>
+  </configuration>
+</openclProject:OpenCLProject>

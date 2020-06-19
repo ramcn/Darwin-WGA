@@ -1,0 +1,5 @@
+GACTX_bank3_m00_axi_input_buffer
+GACTX_bank3_control_s_axi
+GACTX_bank3_m00_axi_m_axi
+GACTX_bank3_m01_axi_m_axi
+GACTX_bank3
