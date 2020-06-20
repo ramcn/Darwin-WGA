@@ -14,9 +14,9 @@ parameter integer LP_MAX_TRANSFER_LENGTH = 16384 / 4;
 parameter integer C_S_AXI_CONTROL_ADDR_WIDTH = 12;
 parameter integer C_S_AXI_CONTROL_DATA_WIDTH = 32;
 parameter integer C_M00_AXI_ADDR_WIDTH = 64;
-parameter integer C_M00_AXI_DATA_WIDTH = 1024;
+parameter integer C_M00_AXI_DATA_WIDTH = 512;
 parameter integer C_M01_AXI_ADDR_WIDTH = 64;
-parameter integer C_M01_AXI_DATA_WIDTH = 1024;
+parameter integer C_M01_AXI_DATA_WIDTH = 512;
 
 // Control Register
 parameter KRNL_CTRL_REG_ADDR     = 32'h00000000;
