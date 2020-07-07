@@ -24,18 +24,18 @@ SOFTWARE.
 
 `default_nettype none
 `timescale 1 ns / 1 ps
-module GACTX_bank3 #(
-  parameter integer C_S_AXI_CONTROL_ADDR_WIDTH = 12 ,
-  parameter integer C_S_AXI_CONTROL_DATA_WIDTH = 32 ,
-  parameter integer C_M00_AXI_ADDR_WIDTH       = 64 ,
-  parameter integer C_M00_AXI_DATA_WIDTH       = 512,
-  parameter integer C_M01_AXI_ADDR_WIDTH       = 64 ,
-  parameter integer C_M01_AXI_DATA_WIDTH       = 512
+module GACTX_bank3_v1_0 #(
+  parameter integer C_S00_AXI_ADDR_WIDTH = 4 ,
+  parameter integer C_S00_AXI_DATA_WIDTH = 32 ,
+  parameter integer C_M00_AXI_ADDR_WIDTH       = 32 ,
+  parameter integer C_M00_AXI_DATA_WIDTH       = 32
 )
 (
   // System Signals
-  input  wire                                    ap_clk               ,
-  input  wire                                    ap_rst_n             ,
+  input  wire                                    s00_axi_aclk               ,
+  input  wire                                    s00_axi_aresetn             ,
+  input  wire                                    m00_axi_aclk               ,
+  input  wire                                    m00_axi_aresetn             ,
   //  Note: A minimum subset of AXI4 memory mapped signals are declared.  AXI
   // signals omitted from these interfaces are automatically inferred with the
   // optimal values for Xilinx SDx systems.  This allows Xilinx AXI4 Interconnects
@@ -82,45 +82,26 @@ module GACTX_bank3 #(
   output wire                                    m00_axi_rready       ,
   input  wire [C_M00_AXI_DATA_WIDTH-1:0]         m00_axi_rdata        ,
   input  wire                                    m00_axi_rlast        ,
-  // AXI4 master interface m01_axi
-  output wire                                    m01_axi_awvalid      ,
-  input  wire                                    m01_axi_awready      ,
-  output wire [C_M01_AXI_ADDR_WIDTH-1:0]         m01_axi_awaddr       ,
-  output wire [8-1:0]                            m01_axi_awlen        ,
-  output wire                                    m01_axi_wvalid       ,
-  input  wire                                    m01_axi_wready       ,
-  output wire [C_M01_AXI_DATA_WIDTH-1:0]         m01_axi_wdata        ,
-  output wire [C_M01_AXI_DATA_WIDTH/8-1:0]       m01_axi_wstrb        ,
-  output wire                                    m01_axi_wlast        ,
-  input  wire                                    m01_axi_bvalid       ,
-  output wire                                    m01_axi_bready       ,
-  output wire                                    m01_axi_arvalid      ,
-  input  wire                                    m01_axi_arready      ,
-  output wire [C_M01_AXI_ADDR_WIDTH-1:0]         m01_axi_araddr       ,
-  output wire [8-1:0]                            m01_axi_arlen        ,
-  input  wire                                    m01_axi_rvalid       ,
-  output wire                                    m01_axi_rready       ,
-  input  wire [C_M01_AXI_DATA_WIDTH-1:0]         m01_axi_rdata        ,
-  input  wire                                    m01_axi_rlast        ,
+
   // AXI4-Lite slave interface
-  input  wire                                    s_axi_control_awvalid,
-  output wire                                    s_axi_control_awready,
-  input  wire [C_S_AXI_CONTROL_ADDR_WIDTH-1:0]   s_axi_control_awaddr ,
-  input  wire                                    s_axi_control_wvalid ,
-  output wire                                    s_axi_control_wready ,
-  input  wire [C_S_AXI_CONTROL_DATA_WIDTH-1:0]   s_axi_control_wdata  ,
-  input  wire [C_S_AXI_CONTROL_DATA_WIDTH/8-1:0] s_axi_control_wstrb  ,
-  input  wire                                    s_axi_control_arvalid,
-  output wire                                    s_axi_control_arready,
-  input  wire [C_S_AXI_CONTROL_ADDR_WIDTH-1:0]   s_axi_control_araddr ,
-  output wire                                    s_axi_control_rvalid ,
-  input  wire                                    s_axi_control_rready ,
-  output wire [C_S_AXI_CONTROL_DATA_WIDTH-1:0]   s_axi_control_rdata  ,
-  output wire [2-1:0]                            s_axi_control_rresp  ,
-  output wire                                    s_axi_control_bvalid ,
-  input  wire                                    s_axi_control_bready ,
-  output wire [2-1:0]                            s_axi_control_bresp  ,
-  output wire                                    interrupt            
+  input  wire                                    s00_axi_awvalid,
+  output wire                                    s00_axi_awready,
+  input  wire [C_S00_AXI_ADDR_WIDTH-1:0]   s00_axi_awaddr ,
+  input  wire                                    s00_axi_wvalid ,
+  output wire                                    s00_axi_wready ,
+  input  wire [C_S00_AXI_DATA_WIDTH-1:0]   s00_axi_wdata  ,
+  input  wire [C_S00_AXI_DATA_WIDTH/8-1:0] s00_axi_wstrb  ,
+  input  wire                                    s00_axi_arvalid,
+  output wire                                    s00_axi_arready,
+  input  wire [C_S00_AXI_ADDR_WIDTH-1:0]   s00_axi_araddr ,
+  output wire                                    s00_axi_rvalid ,
+  input  wire                                    s00_axi_rready ,
+  output wire [C_S00_AXI_DATA_WIDTH-1:0]   s00_axi_rdata  ,
+  output wire [2-1:0]                            s00_axi_rresp  ,
+  output wire                                    s00_axi_bvalid ,
+  input  wire                                    s00_axi_bready ,
+  output wire [2-1:0]                            s00_axi_bresp  ,
+  output wire                                    irq            
 );
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -155,41 +136,37 @@ wire [64-1:0]                       query_seq              ;
 wire [64-1:0]                       tile_output            ;
 wire [64-1:0]                       tb_output              ;
 
-// Register and invert reset signal.
-always @(posedge ap_clk) begin
-  areset <= ~ap_rst_n;
-end
 
 ///////////////////////////////////////////////////////////////////////////////
 // AXI4-Lite slave interface
 ///////////////////////////////////////////////////////////////////////////////
 
 GACTX_AXISlave #(
-  .C_ADDR_WIDTH ( C_S_AXI_CONTROL_ADDR_WIDTH ),
-  .C_DATA_WIDTH ( C_S_AXI_CONTROL_DATA_WIDTH )
+  .C_ADDR_WIDTH ( C_S00_AXI_ADDR_WIDTH ),
+  .C_DATA_WIDTH ( C_S00_AXI_DATA_WIDTH )
 )
 inst_axi_slave (
-  .aclk         ( ap_clk                ),
-  .areset       ( areset                ),
+  .aclk         ( s00_axi_aclk                ),
+  .areset       ( s00_axi_aresetn                ),
   .aclk_en      ( 1'b1                  ),
-  .awvalid      ( s_axi_control_awvalid ),
-  .awready      ( s_axi_control_awready ),
-  .awaddr       ( s_axi_control_awaddr  ),
-  .wvalid       ( s_axi_control_wvalid  ),
-  .wready       ( s_axi_control_wready  ),
-  .wdata        ( s_axi_control_wdata   ),
-  .wstrb        ( s_axi_control_wstrb   ),
-  .arvalid      ( s_axi_control_arvalid ),
-  .arready      ( s_axi_control_arready ),
-  .araddr       ( s_axi_control_araddr  ),
-  .rvalid       ( s_axi_control_rvalid  ),
-  .rready       ( s_axi_control_rready  ),
-  .rdata        ( s_axi_control_rdata   ),
-  .rresp        ( s_axi_control_rresp   ),
-  .bvalid       ( s_axi_control_bvalid  ),
-  .bready       ( s_axi_control_bready  ),
-  .bresp        ( s_axi_control_bresp   ),
-  .interrupt    ( interrupt             ),
+  .awvalid      ( s00_axi_awvalid ),
+  .awready      ( s00_axi_awready ),
+  .awaddr       ( s00_axi_awaddr  ),
+  .wvalid       ( s00_axi_wvalid  ),
+  .wready       ( s00_axi_wready  ),
+  .wdata        ( s00_axi_wdata   ),
+  .wstrb        ( s00_axi_wstrb   ),
+  .arvalid      ( s00_axi_arvalid ),
+  .arready      ( s00_axi_arready ),
+  .araddr       ( s00_axi_araddr  ),
+  .rvalid       ( s00_axi_rvalid  ),
+  .rready       ( s00_axi_rready  ),
+  .rdata        ( s00_axi_rdata   ),
+  .rresp        ( s00_axi_rresp   ),
+  .bvalid       ( s00_axi_bvalid  ),
+  .bready       ( s00_axi_bready  ),
+  .bresp        ( s00_axi_bresp   ),
+  .interrupt    ( irq             ),
   .ap_start     ( ap_start              ),
   .ap_done      ( ap_done               ),
   .ap_idle      ( ap_idle               ),
@@ -227,8 +204,8 @@ GACTX_Kernel #(
   .C_M_AXI_DATA_WIDTH ( C_M00_AXI_DATA_WIDTH )
 )
 inst_kernel (
-  .aclk            ( ap_clk          ),
-  .areset          ( areset          ),
+  .aclk            ( m00_axi_aclk          ),
+  .areset          ( m00_axi_aresetn          ),
   .m00_axi_awvalid ( m00_axi_awvalid ),
   .m00_axi_awready ( m00_axi_awready ),
   .m00_axi_awaddr  ( m00_axi_awaddr  ),
@@ -248,25 +225,6 @@ inst_kernel (
   .m00_axi_rready  ( m00_axi_rready  ),
   .m00_axi_rdata   ( m00_axi_rdata   ),
   .m00_axi_rlast   ( m00_axi_rlast   ),
-  .m01_axi_awvalid ( m01_axi_awvalid ),
-  .m01_axi_awready ( m01_axi_awready ),
-  .m01_axi_awaddr  ( m01_axi_awaddr  ),
-  .m01_axi_awlen   ( m01_axi_awlen   ),
-  .m01_axi_wvalid  ( m01_axi_wvalid  ),
-  .m01_axi_wready  ( m01_axi_wready  ),
-  .m01_axi_wdata   ( m01_axi_wdata   ),
-  .m01_axi_wstrb   ( m01_axi_wstrb   ),
-  .m01_axi_wlast   ( m01_axi_wlast   ),
-  .m01_axi_bvalid  ( m01_axi_bvalid  ),
-  .m01_axi_bready  ( m01_axi_bready  ),
-  .m01_axi_arvalid ( m01_axi_arvalid ),
-  .m01_axi_arready ( m01_axi_arready ),
-  .m01_axi_araddr  ( m01_axi_araddr  ),
-  .m01_axi_arlen   ( m01_axi_arlen   ),
-  .m01_axi_rvalid  ( m01_axi_rvalid  ),
-  .m01_axi_rready  ( m01_axi_rready  ),
-  .m01_axi_rdata   ( m01_axi_rdata   ),
-  .m01_axi_rlast   ( m01_axi_rlast   ),
   .ap_start        ( ap_start        ),
   .ap_done         ( ap_done         ),
   .ap_idle         ( ap_idle         ),

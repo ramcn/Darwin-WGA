@@ -52,25 +52,6 @@ module GACTX_Kernel #(
   input  wire [C_M_AXI_DATA_WIDTH-1:0]     m00_axi_rdata     ,
   input  wire                              m00_axi_rlast     ,
   // AXI4 master interface m01_axi
-  output wire                              m01_axi_awvalid   ,
-  input  wire                              m01_axi_awready   ,
-  output wire [C_M_AXI_ADDR_WIDTH-1:0]     m01_axi_awaddr    ,
-  output wire [8-1:0]                      m01_axi_awlen     ,
-  output wire                              m01_axi_wvalid    ,
-  input  wire                              m01_axi_wready    ,
-  output wire [C_M_AXI_DATA_WIDTH-1:0]     m01_axi_wdata     ,
-  output wire [C_M_AXI_DATA_WIDTH/8-1:0]   m01_axi_wstrb     ,
-  output wire                              m01_axi_wlast     ,
-  input  wire                              m01_axi_bvalid    ,
-  output wire                              m01_axi_bready    ,
-  output wire                              m01_axi_arvalid   ,
-  input  wire                              m01_axi_arready   ,
-  output wire [C_M_AXI_ADDR_WIDTH-1:0]     m01_axi_araddr    ,
-  output wire [8-1:0]                      m01_axi_arlen     ,
-  input  wire                              m01_axi_rvalid    ,
-  output wire                              m01_axi_rready    ,
-  input  wire [C_M_AXI_DATA_WIDTH-1:0]     m01_axi_rdata     ,
-  input  wire                              m01_axi_rlast     ,
   // SDx Control Signals
   input  wire                              ap_start          ,
   output wire                              ap_idle           ,
@@ -225,36 +206,6 @@ inst_axi00_read_master (
   .m_axis_tdata            ( rd_tdata[0]                )
 );
 
-// AXI4 Read Master, output format is an AXI4-Stream master, one stream per thread.
-axi_read_master #(
-  .C_M_AXI_ADDR_WIDTH  ( C_M_AXI_ADDR_WIDTH    ) ,
-  .C_M_AXI_DATA_WIDTH  ( C_M_AXI_DATA_WIDTH    ) ,
-  .C_XFER_SIZE_WIDTH   ( C_XFER_SIZE_WIDTH     ) ,
-  .C_MAX_OUTSTANDING   ( LP_RD_MAX_OUTSTANDING ) ,
-  .C_INCLUDE_DATA_FIFO ( 1                     )
-)
-inst_axi01_read_master (
-  .aclk                    ( aclk                    ) ,
-  .areset                  ( rst                  ) ,
-  .ctrl_start              ( read_start[1]                ) ,
-  .ctrl_done               ( read_done[1]               ) ,
-  .ctrl_addr_offset        ( read_addr_offset[1]        ) ,
-  .ctrl_xfer_size_in_bytes ( read_xfer_byte_length[1]   ) ,
-  .m_axi_arvalid           ( m01_axi_arvalid           ) ,
-  .m_axi_arready           ( m01_axi_arready           ) ,
-  .m_axi_araddr            ( m01_axi_araddr            ) ,
-  .m_axi_arlen             ( m01_axi_arlen             ) ,
-  .m_axi_rvalid            ( m01_axi_rvalid            ) ,
-  .m_axi_rready            ( m01_axi_rready            ) ,
-  .m_axi_rdata             ( m01_axi_rdata             ) ,
-  .m_axi_rlast             ( m01_axi_rlast             ) ,
-  .m_axis_aclk             ( aclk              ) ,
-  .m_axis_areset           ( areset              ) ,
-  .m_axis_tvalid           ( rd_tvalid[1]               ) ,
-  .m_axis_tready           ( rd_tready[1]               ) ,
-  .m_axis_tlast            ( rd_tlast[1]                ) ,
-  .m_axis_tdata            ( rd_tdata[1]                )
-);
 
 GACTX_KernelControl #(
   .C_M_AXI_ADDR_WIDTH ( C_M_AXI_ADDR_WIDTH ) ,
@@ -345,37 +296,5 @@ inst_axi00_write_master (
   .s_axis_tdata            ( adder_tdata[0]             )
 );
 
-// AXI4 Write Master
-axi_write_master #(
-  .C_M_AXI_ADDR_WIDTH  ( C_M_AXI_ADDR_WIDTH    ) ,
-  .C_M_AXI_DATA_WIDTH  ( C_M_AXI_DATA_WIDTH    ) ,
-  .C_XFER_SIZE_WIDTH   ( C_XFER_SIZE_WIDTH     ) ,
-  .C_MAX_OUTSTANDING   ( LP_WR_MAX_OUTSTANDING ) ,
-  .C_INCLUDE_DATA_FIFO ( 1                     )
-)
-inst_axi01_write_master (
-  .aclk                    ( aclk                    ) ,
-  .areset                  ( rst                  ) ,
-  .ctrl_start              ( write_start[1]                ) ,
-  .ctrl_done               ( write_done[1]              ) ,
-  .ctrl_addr_offset        ( write_addr_offset[1]       ) ,
-  .ctrl_xfer_size_in_bytes ( write_xfer_byte_length[1]  ) ,
-  .m_axi_awvalid           ( m01_axi_awvalid           ) ,
-  .m_axi_awready           ( m01_axi_awready           ) ,
-  .m_axi_awaddr            ( m01_axi_awaddr            ) ,
-  .m_axi_awlen             ( m01_axi_awlen             ) ,
-  .m_axi_wvalid            ( m01_axi_wvalid            ) ,
-  .m_axi_wready            ( m01_axi_wready            ) ,
-  .m_axi_wdata             ( m01_axi_wdata             ) ,
-  .m_axi_wstrb             ( m01_axi_wstrb             ) ,
-  .m_axi_wlast             ( m01_axi_wlast             ) ,
-  .m_axi_bvalid            ( m01_axi_bvalid            ) ,
-  .m_axi_bready            ( m01_axi_bready            ) ,
-  .s_axis_aclk             ( aclk              ) ,
-  .s_axis_areset           ( areset              ) ,
-  .s_axis_tvalid           ( adder_tvalid[1]            ) ,
-  .s_axis_tready           ( adder_tready[1]            ) ,
-  .s_axis_tdata            ( adder_tdata[1]             )
-);
 endmodule : GACTX_Kernel 
 `default_nettype wire

@@ -23,10 +23,10 @@ SOFTWARE.
 */
 
 module GACTX_KernelControl #(
-  parameter integer C_M_AXI_ADDR_WIDTH  = 64,
+  parameter integer C_M_AXI_ADDR_WIDTH  = 32,
   parameter integer C_M_AXI_DATA_WIDTH  = 32,
   parameter integer C_XFER_SIZE_WIDTH   = C_M_AXI_ADDR_WIDTH,
-  parameter integer C_AXIS_TDATA_WIDTH = 512,
+  parameter integer C_AXIS_TDATA_WIDTH = 32,
   parameter integer C_ADDER_BIT_WIDTH  = 32,
   parameter integer NUM_AXI = 2
 )
@@ -75,21 +75,21 @@ module GACTX_KernelControl #(
     input  wire [32-1:0]                   align_fields,
     input  wire [32-1:0]                   ref_len,
     input  wire [32-1:0]                   query_len,
-    input  wire [64-1:0]                   ref_offset,
-    input  wire [64-1:0]                   query_offset,
+    input  wire [32-1:0]                   ref_offset,
+    input  wire [32-1:0]                   query_offset,
 
-    input  wire [64-1:0]                   ref_seq,
-    input  wire [64-1:0]                   query_seq,
-    input  wire [64-1:0]                   tile_output,
-    input  wire [64-1:0]                   tb_output      
+    input  wire [32-1:0]                   ref_seq,
+    input  wire [32-1:0]                   query_seq,
+    input  wire [32-1:0]                   tile_output,
+    input  wire [32-1:0]                   tb_output      
 
 );
 
-localparam integer BLOCK_WIDTH = 3;
+localparam integer BLOCK_WIDTH = 2;
 localparam integer BRAM_WIDTH_CHAR = (2 ** BLOCK_WIDTH);
 localparam integer BRAM_WIDTH = 8*BRAM_WIDTH_CHAR;
 localparam integer NUM_BRAM_LOOPS = C_AXIS_TDATA_WIDTH/BRAM_WIDTH;
-localparam [C_ADDER_BIT_WIDTH-1:0] MASK = 63;
+localparam [C_ADDER_BIT_WIDTH-1:0] MASK = 31;
 localparam integer BYTE_WIDTH = 8;
 localparam integer DATA_WIDTH_BYTE = C_AXIS_TDATA_WIDTH/BYTE_WIDTH;
 localparam integer PE_WIDTH = 21;
@@ -106,7 +106,7 @@ localparam integer SHIFT_LEN = 6;
 // Variables
 /////////////////////////////////////////////////////////////////////////////
 logic   [C_XFER_SIZE_WIDTH-1:0]  	 read_byte_length_logic[NUM_AXI-1:0];
-logic   [64-1:0]  	        	 	 read_addr_offset_reg[NUM_AXI-1:0]; 
+logic   [32-1:0]  	        	 	 read_addr_offset_reg[NUM_AXI-1:0]; 
 logic   [NUM_AXI-1:0]	           	 read_start_reg;
 
 
@@ -162,7 +162,7 @@ logic   [32-1:0]	            	 ref_off;
 logic   [C_AXIS_TDATA_WIDTH-1:0] 	 data_out[NUM_AXI-1:0];
 logic   [NUM_AXI-1:0]	         	 m_axis_tvalid_reg = {NUM_AXI{1'b0}};
 logic   [C_XFER_SIZE_WIDTH-1:0]  	 write_byte_length_logic[NUM_AXI-1:0];
-logic   [64-1:0]  	        	 	 write_addr_offset_reg[NUM_AXI-1:0]; 
+logic   [32-1:0]  	        	 	 write_addr_offset_reg[NUM_AXI-1:0]; 
 logic   [NUM_AXI-1:0]		       	 write_start_reg = {NUM_AXI{1'b0}};
 
 logic                                ref_done;
@@ -198,7 +198,7 @@ integer inn;
 function [C_AXIS_TDATA_WIDTH-1:0] right_shift(input [C_AXIS_TDATA_WIDTH-1:0] inp, input [SHIFT_LEN-1:0] shift_amt);
     logic  [C_AXIS_TDATA_WIDTH-1:0] outp;
 
-    for(inn = 0; inn < 64; inn = inn+1) begin
+    for(inn = 0; inn < 32; inn = inn+1) begin
         if(inn == shift_amt) begin
             outp = (inp >> (BYTE_WIDTH*inn));
         end
@@ -210,7 +210,7 @@ endfunction
 function [C_AXIS_TDATA_WIDTH-1:0] left_shift(input [C_AXIS_TDATA_WIDTH-1:0] inp, input [SHIFT_LEN-1:0] shift_amt);
     logic  [C_AXIS_TDATA_WIDTH-1:0] outp;
 
-    for(inn = 0; inn < 64; inn = inn+1) begin
+    for(inn = 0; inn < 32; inn = inn+1) begin
         if(inn == shift_amt) begin
             outp = (inp << (BYTE_WIDTH*inn));
         end
@@ -739,41 +739,41 @@ end
 
 always @(posedge aclk) begin
     if(areset) begin
-        read_start_reg[1] <= 0; 
-        read_byte_length_logic[1] <= 0;
-        read_addr_offset_reg[1] <= 0;
+        read_start_reg[0] <= 0; 
+        read_byte_length_logic[0] <= 0;
+        read_addr_offset_reg[0] <= 0;
         query_fifo_wr_en <= 0;
     end
     else begin
         case(state_query_seq)
             IDLE_QUERY_SEQ: begin
-                read_start_reg[1] <= 0; 
-                read_byte_length_logic[1] <= 0;
-                read_addr_offset_reg[1] <= 0;
+                read_start_reg[0] <= 0; 
+                read_byte_length_logic[0] <= 0;
+                read_addr_offset_reg[0] <= 0;
                 query_fifo_wr_en <= 0;
                 query_off <= query_offset[31:0];
             end
 
             BLOCK_QUERY0: begin
-                read_start_reg[1] <= 1;
-                read_byte_length_logic[1] <= query_len + (query_off & MASK);
-                read_addr_offset_reg[1] <= query_seq + query_off;
+                read_start_reg[0] <= 1;
+                read_byte_length_logic[0] <= query_len + (query_off & MASK);
+                read_addr_offset_reg[0] <= query_seq + query_off;
             end
 
             SEND_QUERY_SEQ_OFFSET: begin
-                read_start_reg[1] <= 0;
+                read_start_reg[0] <= 0;
             end
 
             BLOCK_QUERY1: begin
-                if(s_axis_tvalid[1]) begin
-                    prev_data_query <= s_axis_tdata[1];
+                if(s_axis_tvalid[0]) begin
+                    prev_data_query <= s_axis_tdata[0];
                 end
             end
 
             READ_QUERY_SEQ: begin
-                if(s_axis_tvalid[1]) begin
+                if(s_axis_tvalid[0]) begin
                     query_fifo_wr_en <= 1;
-                    prev_data_query <= s_axis_tdata[1];
+                    prev_data_query <= s_axis_tdata[0];
                     data_query <= prev_data_query;
                 end
                 else begin
@@ -787,9 +787,9 @@ always @(posedge aclk) begin
             end
 
             DONE_QUERY_SEQ: begin
-                read_start_reg[1] <= 0; 
-                read_byte_length_logic[1] <= 0;
-                read_addr_offset_reg[1] <= 0;
+                read_start_reg[0] <= 0; 
+                read_byte_length_logic[0] <= 0;
+                read_addr_offset_reg[0] <= 0;
                 query_fifo_wr_en <= 0;
             end
         endcase
@@ -817,8 +817,8 @@ always @(posedge aclk) begin
             end
 
             BLOCK_QUERY1: begin
-                if(s_axis_tvalid[1]) begin
-                    if(s_axis_tlast[1]) begin
+                if(s_axis_tvalid[0]) begin
+                    if(s_axis_tlast[0]) begin
                         state_query_seq <= BLOCK4;
                     end
                     else begin
@@ -828,7 +828,7 @@ always @(posedge aclk) begin
             end
 
             READ_QUERY_SEQ: begin
-                if(s_axis_tvalid[1] && s_axis_tlast[1]) begin
+                if(s_axis_tvalid[0] && s_axis_tlast[0]) begin
                     state_query_seq <= BLOCK4;
                 end
             end
@@ -864,7 +864,7 @@ always @(posedge aclk) begin
 
             BLOCK_OUTPUT: begin
                 write_start_reg[0] <= 1; 
-                write_byte_length_logic[0] <= 32'd64;
+                write_byte_length_logic[0] <= 32'd32;
                 write_addr_offset_reg[0] <= tile_output;
             end
 
@@ -935,52 +935,52 @@ end
 
 always @(posedge aclk) begin
     if(areset) begin
-        write_start_reg[1] <= 0; 
-        m_axis_tvalid_reg[1] <= 0;
-        write_byte_length_logic[1] <= 0;
-        data_out[1] <= 512'd0;
+        write_start_reg[0] <= 0; 
+        m_axis_tvalid_reg[0] <= 0;
+        write_byte_length_logic[0] <= 0;
+        data_out[0] <= 512'd0;
         iter_dir <= 32'd0;
         dir_output_data <= 512'd0;
     end
     else begin
         case(state_out_dir)
             IDLE_DIR: begin
-                write_start_reg[1] <= 0; 
-                m_axis_tvalid_reg[1] <= 0;
-                write_byte_length_logic[1] <= 0;
-                data_out[1] <= 512'd0;
+                write_start_reg[0] <= 0; 
+                m_axis_tvalid_reg[0] <= 0;
+                write_byte_length_logic[0] <= 0;
+                data_out[0] <= 512'd0;
                 iter_dir <= 32'd0;
                 dir_output_data <= 512'd0;
             end
 
             BLOCK_DIR: begin
-                write_start_reg[1] <= 1; 
-                write_byte_length_logic[1] <= (dir_out_count << 6);
-                write_addr_offset_reg[1] <= tb_output;
+                write_start_reg[0] <= 1; 
+                write_byte_length_logic[0] <= (dir_out_count << 6);
+                write_addr_offset_reg[0] <= tb_output;
             end
 
             SEND_DIR: begin
-                write_start_reg[1] <= 0; 
-                write_byte_length_logic[1] <= 32'd0;
+                write_start_reg[0] <= 0; 
+                write_byte_length_logic[0] <= 32'd0;
 
                 if(dir_out_valid) begin
                     iter_dir <= iter_dir + 32'd1;
-                    m_axis_tvalid_reg[1] <= 1;
-                    data_out[1] <= dir_out;
+                    m_axis_tvalid_reg[0] <= 1;
+                    data_out[0] <= dir_out;
                 end
                 else begin
-                    m_axis_tvalid_reg[1] <= 0;
+                    m_axis_tvalid_reg[0] <= 0;
                 end
             end
 
             SEND_DIR_DONE: begin
-                m_axis_tvalid_reg[1] <= 0;
+                m_axis_tvalid_reg[0] <= 0;
             end
 
             DONE_DIR: begin
-                write_start_reg[1] <= 0; 
-                m_axis_tvalid_reg[1] <= 0;
-                write_byte_length_logic[1] <= 0;
+                write_start_reg[0] <= 0; 
+                m_axis_tvalid_reg[0] <= 0;
+                write_byte_length_logic[0] <= 0;
             end
 
         endcase
@@ -1015,7 +1015,7 @@ always @(posedge aclk) begin
             end
 
             SEND_DIR_DONE: begin
-                if(write_done[1] == 1) begin
+                if(write_done[0] == 1) begin
                     state_out_dir <= DONE_DIR;
                 end
             end
