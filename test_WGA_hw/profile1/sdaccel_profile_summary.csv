@@ -1,0 +1,108 @@
+SDAccel Profile Summary
+Generated on: 2020-06-28 07:16:28
+Msec since Epoch: 1593328588391
+Profiled application: wga
+Target platform: Xilinx
+Tool version: 2017.4
+Target devices: xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0
+Flow mode: System Run
+
+OpenCL API Calls
+API Name,Number Of Calls,Total Time (ms),Minimum Time (ms),Average Time (ms),Maximum Time (ms),
+clEnqueueWriteBuffer,38,672.918,0.037388,17.7084,38.4121,
+clCreateBuffer,34,447.271,0.019914,13.155,27.5838,
+clReleaseMemObject,34,112.534,0.003122,3.30982,6.92498,
+clCreateProgramWithBinary,1,50.1871,50.1871,50.1871,50.1871,
+clReleaseKernel,5,10.4073,0.004467,2.08147,10.3261,
+clFinish,14,6.32674,0.086618,0.45191,4.95151,
+clEnqueueReadBuffer,26,2.64007,0.084366,0.101541,0.191167,
+clSetKernelArg,318,1.13202,0.003305,0.0035598,0.020223,
+clEnqueueTask,14,0.753117,0.035724,0.0537941,0.171334,
+clWaitForEvents,64,0.280497,0.003581,0.00438277,0.010723,
+clCreateKernel,5,0.056634,0.006544,0.0113268,0.024583,
+clGetPlatformIDs,1,0.055064,0.055064,0.055064,0.055064,
+clCreateCommandQueue,5,0.026742,0.003644,0.0053484,0.011213,
+clReleaseCommandQueue,5,0.0184,0.003242,0.00368,0.004891,
+clCreateContext,1,0.013235,0.013235,0.013235,0.013235,
+clGetDeviceIDs,1,0.00999,0.00999,0.00999,0.00999,
+clGetPlatformInfo,1,0.009876,0.009876,0.009876,0.009876,
+clBuildProgram,1,0.009712,0.009712,0.009712,0.009712,
+clGetDeviceInfo,1,0.006945,0.006945,0.006945,0.006945,
+clReleaseProgram,1,0.004882,0.004882,0.004882,0.004882,
+clReleaseContext,1,0.003995,0.003995,0.003995,0.003995,
+
+
+Kernel Execution
+Kernel,Number Of Enqueues,Total Time (ms),Minimum Time (ms),Average Time (ms),Maximum Time (ms),
+BSW_bank0,2,0.40288,0.115538,0.20144,0.287342,
+GACTX_bank3,12,1.29425,0.095952,0.107854,0.122203,
+
+
+Compute Unit Utilization
+Device,Compute Unit,Kernel,Global Work Size,Local Work Size,Number Of Calls,Total Time (ms),Minimum Time (ms),Average Time (ms),Maximum Time (ms),Clock Frequency (MHz),
+xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,BSW_bank0_1,BSW_bank0,1:1:1,1:1:1,2,0.206717,0.072994,0.103359,0.133723,139,
+xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,GACTX_bank3_1,GACTX_bank3,1:1:1,1:1:1,12,0.858289,0.063053,0.0715241,0.088436,139,
+
+
+Data Transfer: Host and Global Memory
+Context:Number of Devices,Transfer Type,Number Of Transfers,Transfer Rate (MB/s),Average Bandwidth Utilization (%),Average Size (KB),Total Time (ms),Average Time (ms),
+context0:1,READ,26,9600.000000,100.000000,5162.72,13.982373,0.537784,
+context0:1,WRITE,4,9600.000000,100.000000,16782.1,6.992540,1.748135,
+
+
+Data Transfer: Kernels and Global Memory
+Device,Compute Unit/Port Name,Kernel Arguments,DDR Bank,Transfer Type,Number Of Transfers,Transfer Rate (MB/s),Average Bandwidth Utilization (%),Average Size (KB),Average Latency (ns),
+
+
+Top Data Transfer: Kernels and Global Memory
+Device,Compute Unit,Number of Transfers,Average Bytes per Transfer,Transfer Efficiency (%),Total Data Transfer (MB),Total Write (MB),Total Read (MB),Transfer Rate (MB/s),Average Bandwidth Utilization (%),
+xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,Kernels,0,0,0,0,0,0,0,0,
+
+
+Top Kernel Execution
+Kernel Instance Address,Kernel,Context ID,Command Queue ID,Device,Start Time (ms),Duration (ms),Global Work Size,Local Work Size,
+140689333403472,BSW_bank0,0,0,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,1480.51,0.287342,1:1:1,1:1:1,
+140689333402704,GACTX_bank3,0,4,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,1484.42,0.122203,1:1:1,1:1:1,
+140689333402704,GACTX_bank3,0,4,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,1482.16,0.115961,1:1:1,1:1:1,
+140689333403472,BSW_bank0,0,0,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,1481.52,0.115538,1:1:1,1:1:1,
+140689333402704,GACTX_bank3,0,4,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,1486.06,0.113166,1:1:1,1:1:1,
+140689333402704,GACTX_bank3,0,4,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,1487.63,0.109153,1:1:1,1:1:1,
+140689333402704,GACTX_bank3,0,4,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,1487.1,0.108789,1:1:1,1:1:1,
+140689333402704,GACTX_bank3,0,4,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,1482.88,0.108591,1:1:1,1:1:1,
+140689333402704,GACTX_bank3,0,4,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,1486.58,0.107729,1:1:1,1:1:1,
+140689333402704,GACTX_bank3,0,4,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,1485.53,0.10595,1:1:1,1:1:1,
+
+
+Top Buffer Writes
+Buffer Address,Context ID,Command Queue ID,Start Time (ms),Duration (ms),Buffer Size (KB),Writing Rate(MB/s),
+301989888,0,0,1475.76,4.803207,33563.6,6987.757971,
+51841605632,0,4,1482.07,0.120637,10.304,85.413265,
+0,0,0,1481.09,0.080610,16777.2,208128.222305,
+16777216,0,0,1481.24,0.056569,16777.2,296579.681451,
+
+
+Top Buffer Reads
+Buffer Address,Context ID,Command Queue ID,Start Time (ms),Duration (ms),Buffer Size (KB),Reading Rate(MB/s),
+51841597440,0,4,1482.34,0.137960,0.064,0.463903,
+33554432,0,0,1480.9,0.098932,67108.9,678333.238992,
+100663296,0,0,1481.7,0.083867,67108.9,800182.002458,
+51841601536,0,4,1482.57,0.081205,1.024,12.610061,
+51841597440,0,4,1483.54,0.058548,0.064,1.093120,
+51841597440,0,4,1485.68,0.057781,0.064,1.107631,
+51841597440,0,4,1487.79,0.057302,0.064,1.116889,
+51841597440,0,4,1486.73,0.057112,0.064,1.120605,
+51841597440,0,4,1484.59,0.057035,0.064,1.122118,
+51841597440,0,4,1485.15,0.053957,0.064,1.186130,
+
+
+PRC Parameters
+Parameter,Element,Value,
+DEVICE_EXEC_TIME,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,7.768606,
+CU_CALLS,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0|BSW_bank0_1,2,
+CU_CALLS,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0|BSW_bank1_1,0,
+CU_CALLS,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0|BSW_bank2_1,0,
+CU_CALLS,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0|BSW_bank3_1,0,
+CU_CALLS,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0|GACTX_bank3_1,12,
+MEMORY_BIT_WIDTH,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,512,
+
+

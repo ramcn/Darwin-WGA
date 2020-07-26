@@ -1,0 +1,3 @@
+/home/centos/local-build/Darwin-WGA/test_WGA_hw/CMakeFiles/edit_cache.dir
+/home/centos/local-build/Darwin-WGA/test_WGA_hw/CMakeFiles/rebuild_cache.dir
+/home/centos/local-build/Darwin-WGA/test_WGA_hw/CMakeFiles/wga.dir

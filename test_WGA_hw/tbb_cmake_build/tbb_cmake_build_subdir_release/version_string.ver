@@ -1,0 +1,11 @@
+#define __TBB_VERSION_STRINGS(N) \
+#N": BUILD_HOST\t\tip-172-31-39-28 (x86_64)" ENDL \
+#N": BUILD_OS\t\tCentOS Linux release 7.4.1708 (Core) " ENDL \
+#N": BUILD_KERNEL\tLinux 3.10.0-693.21.1.el7.x86_64 #1 SMP Wed Mar 7 19:03:37 UTC 2018" ENDL \
+#N": BUILD_GCC\t\tg++ (GCC) 4.8.5 20150623 (Red Hat 4.8.5-39)" ENDL \
+#N": BUILD_LIBC\t2.17" ENDL \
+#N": BUILD_LD\t\tGNU ld version 2.25.1-32.base.el7_4.2 " ENDL \
+#N": BUILD_TARGET\tintel64 on cc4.8.5_libc2.17_kernel3.10.0" ENDL \
+#N": BUILD_COMMAND\t/usr/bin/c++ -O2 -g -DDO_ITT_NOTIFY -DUSE_PTHREAD -pthread -m64 -mrtm -fPIC -D__TBB_BUILD=1 -Wall -Wextra -Wno-parentheses -DTBB_SUPPRESS_DEPRECATED_MESSAGES=1 -D__TBB_CPF_BUILD=1 -I/home/centos/local-build/Darwin-WGA/tbb/./src -I/home/centos/local-build/Darwin-WGA/tbb/./src/rml/include -I/home/centos/local-build/Darwin-WGA/tbb/./include -I." ENDL \
+
+#define __TBB_DATETIME "Sat Dec 28 09:36:31 UTC 2019"

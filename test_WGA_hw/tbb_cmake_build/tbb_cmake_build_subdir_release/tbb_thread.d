@@ -1,0 +1,31 @@
+tbb_thread.o: \
+ /home/centos/local-build/Darwin-WGA/tbb/./src/tbb/tbb_thread.cpp \
+ /home/centos/local-build/Darwin-WGA/tbb/./src/tbb/tbb_misc.h \
+ /home/centos/local-build/Darwin-WGA/tbb/./include/tbb/tbb_stddef.h \
+ /home/centos/local-build/Darwin-WGA/tbb/./include/tbb/tbb_config.h \
+ /home/centos/local-build/Darwin-WGA/tbb/./include/tbb/tbb_machine.h \
+ /home/centos/local-build/Darwin-WGA/tbb/./include/tbb/tbb_stddef.h \
+ /home/centos/local-build/Darwin-WGA/tbb/./include/tbb/machine/linux_intel64.h \
+ /home/centos/local-build/Darwin-WGA/tbb/./include/tbb/machine/gcc_ia32_common.h \
+ /home/centos/local-build/Darwin-WGA/tbb/./include/tbb/machine/gcc_itsx.h \
+ /home/centos/local-build/Darwin-WGA/tbb/./include/tbb/machine/linux_common.h \
+ /home/centos/local-build/Darwin-WGA/tbb/./include/tbb/atomic.h \
+ /home/centos/local-build/Darwin-WGA/tbb/./include/tbb/internal/_deprecated_header_message_guard.h \
+ /home/centos/local-build/Darwin-WGA/tbb/./include/tbb/tbb_config.h \
+ /home/centos/local-build/Darwin-WGA/tbb/./include/tbb/internal/_warning_suppress_enable_notice.h \
+ /home/centos/local-build/Darwin-WGA/tbb/./include/tbb/internal/../tbb_config.h \
+ /home/centos/local-build/Darwin-WGA/tbb/./include/tbb/tbb_machine.h \
+ /home/centos/local-build/Darwin-WGA/tbb/./include/tbb/internal/_warning_suppress_disable_notice.h \
+ /home/centos/local-build/Darwin-WGA/tbb/./include/tbb/info.h \
+ /home/centos/local-build/Darwin-WGA/tbb/./include/tbb/tbb_thread.h \
+ /home/centos/local-build/Darwin-WGA/tbb/./include/tbb/atomic.h \
+ /home/centos/local-build/Darwin-WGA/tbb/./include/tbb/internal/_tbb_hash_compare_impl.h \
+ /home/centos/local-build/Darwin-WGA/tbb/./include/tbb/tick_count.h \
+ /home/centos/local-build/Darwin-WGA/tbb/./include/tbb/tbb_allocator.h \
+ /home/centos/local-build/Darwin-WGA/tbb/./include/tbb/global_control.h \
+ /home/centos/local-build/Darwin-WGA/tbb/./src/tbb/governor.h \
+ /home/centos/local-build/Darwin-WGA/tbb/./include/tbb/task_scheduler_init.h \
+ /home/centos/local-build/Darwin-WGA/tbb/./src/tbb/../rml/include/rml_tbb.h \
+ /home/centos/local-build/Darwin-WGA/tbb/./src/tbb/../rml/include/rml_base.h \
+ /home/centos/local-build/Darwin-WGA/tbb/./src/tbb/tls.h \
+ /home/centos/local-build/Darwin-WGA/tbb/./src/tbb/cilk-tbb-interop.h
