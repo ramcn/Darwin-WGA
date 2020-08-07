@@ -1,0 +1,114 @@
+SDAccel Profile Summary
+Generated on: 2020-08-06 16:13:59
+Msec since Epoch: 1596730439067
+Profiled application: wga
+Target platform: Xilinx
+Tool version: 2017.4
+Target devices: xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0
+Flow mode: System Run
+
+OpenCL API Calls
+API Name,Number Of Calls,Total Time (ms),Minimum Time (ms),Average Time (ms),Maximum Time (ms),
+clCreateProgramWithBinary,1,6657.24,6657.24,6657.24,6657.24,
+clEnqueueReadBuffer,23512,2141.1,0.079838,0.0910641,0.546958,
+clFinish,11769,1353.11,0.066453,0.114972,7.72087,
+clSetKernelArg,270635,967.023,0.003169,0.00357316,0.152992,
+clEnqueueWriteBuffer,86,668.386,0.036581,7.77192,36.5056,
+clEnqueueTask,11769,493.824,0.03527,0.0419597,0.157868,
+clCreateBuffer,34,420.62,0.017379,12.3712,23.3213,
+clReleaseMemObject,34,113.502,0.003119,3.3383,6.85014,
+clWaitForEvents,23598,95.9455,0.003539,0.00406583,0.02849,
+clReleaseKernel,5,11.3587,0.004665,2.27174,10.776,
+clGetPlatformIDs,1,0.059638,0.059638,0.059638,0.059638,
+clCreateKernel,5,0.052506,0.006166,0.0105012,0.020759,
+clCreateCommandQueue,5,0.026422,0.00377,0.0052844,0.010604,
+clReleaseCommandQueue,5,0.018909,0.003334,0.0037818,0.005179,
+clCreateContext,1,0.011484,0.011484,0.011484,0.011484,
+clBuildProgram,1,0.009921,0.009921,0.009921,0.009921,
+clGetPlatformInfo,1,0.009521,0.009521,0.009521,0.009521,
+clGetDeviceIDs,1,0.008907,0.008907,0.008907,0.008907,
+clGetDeviceInfo,1,0.006218,0.006218,0.006218,0.006218,
+clReleaseProgram,1,0.005116,0.005116,0.005116,0.005116,
+clReleaseContext,1,0.004501,0.004501,0.004501,0.004501,
+
+
+Kernel Execution
+Kernel,Number Of Enqueues,Total Time (ms),Minimum Time (ms),Average Time (ms),Maximum Time (ms),
+BSW_bank0,26,3.79241,0.091534,0.145862,0.313152,
+GACTX_bank3,11743,1476.95,0.082349,0.125773,0.177403,
+
+
+Compute Unit Utilization
+Device,Compute Unit,Kernel,Global Work Size,Local Work Size,Number Of Calls,Total Time (ms),Minimum Time (ms),Average Time (ms),Maximum Time (ms),Clock Frequency (MHz),
+xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,BSW_bank0_1,BSW_bank0,1:1:1,1:1:1,26,2.60228,0.05366,0.100088,0.15639,139,
+xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,GACTX_bank3_1,GACTX_bank3,1:1:1,1:1:1,11743,1038.23,0.049763,0.0884125,0.134926,139,
+
+
+Data Transfer: Host and Global Memory
+Context:Number of Devices,Transfer Type,Number Of Transfers,Transfer Rate (MB/s),Average Bandwidth Utilization (%),Average Size (KB),Total Time (ms),Average Time (ms),
+context0:1,READ,23512,1448.284735,15.086299,74.7536,1213.578246,0.051615,
+context0:1,WRITE,52,9600.000000,100.000000,16953.7,91.832327,1.766006,
+
+
+Data Transfer: Kernels and Global Memory
+Device,Compute Unit/Port Name,Kernel Arguments,DDR Bank,Transfer Type,Number Of Transfers,Transfer Rate (MB/s),Average Bandwidth Utilization (%),Average Size (KB),Average Latency (ns),
+
+
+Top Data Transfer: Kernels and Global Memory
+Device,Compute Unit,Number of Transfers,Average Bytes per Transfer,Transfer Efficiency (%),Total Data Transfer (MB),Total Write (MB),Total Read (MB),Transfer Rate (MB/s),Average Bandwidth Utilization (%),
+xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,Kernels,0,0,0,0,0,0,0,0,
+
+
+Top Kernel Execution
+Kernel Instance Address,Kernel,Context ID,Command Queue ID,Device,Start Time (ms),Duration (ms),Global Work Size,Local Work Size,
+140285425090384,BSW_bank0,0,0,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,18050.2,0.313152,1:1:1,1:1:1,
+140285425090384,BSW_bank0,0,0,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,18698.8,0.204419,1:1:1,1:1:1,
+140285425090384,BSW_bank0,0,0,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,22603.9,0.187436,1:1:1,1:1:1,
+140285425090384,BSW_bank0,0,0,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,20540.1,0.186724,1:1:1,1:1:1,
+140285425090384,BSW_bank0,0,0,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,21378.2,0.185456,1:1:1,1:1:1,
+140285425089616,GACTX_bank3,0,4,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,21650,0.177403,1:1:1,1:1:1,
+140285425089616,GACTX_bank3,0,4,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,20640.9,0.171783,1:1:1,1:1:1,
+140285425090384,BSW_bank0,0,0,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,22072.5,0.171124,1:1:1,1:1:1,
+140285425089616,GACTX_bank3,0,4,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,20666.9,0.170485,1:1:1,1:1:1,
+140285425089616,GACTX_bank3,0,4,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,22764.9,0.169815,1:1:1,1:1:1,
+
+
+Top Buffer Writes
+Buffer Address,Context ID,Command Queue ID,Start Time (ms),Duration (ms),Buffer Size (KB),Writing Rate(MB/s),
+301989888,0,0,18042.7,7.537085,38141.4,5060.502834,
+51841605632,0,4,18051.7,0.545759,4588.1,8406.816928,
+0,0,0,18698.3,0.122770,16777.2,136655.665063,
+16777216,0,0,24119.9,0.084985,16777.2,197413.849500,
+0,0,0,22072,0.083593,16777.2,200701.207040,
+0,0,0,20539.6,0.078953,16777.2,212496.244601,
+0,0,0,22603.5,0.076562,16777.2,219132.415563,
+0,0,0,24119.8,0.076291,16777.2,219910.815165,
+0,0,0,23152.5,0.075464,16777.2,222320.788716,
+0,0,0,21377.7,0.075133,16777.2,223300.227590,
+
+
+Top Buffer Reads
+Buffer Address,Context ID,Command Queue ID,Start Time (ms),Duration (ms),Buffer Size (KB),Reading Rate(MB/s),
+51841597440,0,4,19935.6,0.482815,0.064,0.132556,
+51841601536,0,4,24440,0.123204,1.024,8.311418,
+51841597440,0,4,18052.5,0.108694,0.064,0.588809,
+33554432,0,0,18050.6,0.099208,67108.9,676446.093060,
+51841601536,0,4,24540.6,0.095083,1.024,10.769538,
+51841601536,0,4,21363,0.085472,1.024,11.980532,
+51841601536,0,4,21433.9,0.084689,1.024,12.091299,
+51841601536,0,4,21563,0.082783,1.024,12.369689,
+51841601536,0,4,19256.9,0.082116,1.024,12.470164,
+51841601536,0,4,18719.9,0.081482,1.024,12.567193,
+
+
+PRC Parameters
+Parameter,Element,Value,
+DEVICE_EXEC_TIME,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,6640.832578,
+CU_CALLS,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0|BSW_bank0_1,26,
+CU_CALLS,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0|BSW_bank1_1,0,
+CU_CALLS,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0|BSW_bank2_1,0,
+CU_CALLS,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0|BSW_bank3_1,0,
+CU_CALLS,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0|GACTX_bank3_1,11743,
+MEMORY_BIT_WIDTH,xilinx_aws-vu9p-f1-04261818_dynamic_5_0-0,512,
+
+
